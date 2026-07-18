@@ -1,5 +1,6 @@
 import TextInputForm from "./TextInputForm";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 function TextInputFormContainer(){
     //presenter-container pattern : container component is responsible for handling the logic 
     // and state management, while the presenter component is responsible for rendering the UI 
@@ -7,11 +8,17 @@ function TextInputFormContainer(){
 
     const [inputType, setInputType] = useState("password");
     const [value, setValue] = useState("");
+    const navigate = useNavigate();
 
     function handleFormSubmit(e){
         e.preventDefault();
         console.log("Form submitted");
         console.log("Input value: ", value);
+        if(value){
+            setTimeout(() => {
+                navigate("/play");
+            },5000);
+        }
     }
     function handleTextInputChange(e){
         setValue(e.target.value);
