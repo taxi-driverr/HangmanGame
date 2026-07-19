@@ -15,9 +15,9 @@ function TextInputFormContainer(){
         console.log("Form submitted");
         console.log("Input value: ", value);
         if(value){
-            setTimeout(() => {
-                navigate("/play");
-            },5000);
+          
+                navigate(`/play`,{state:{wordSelected:value}});
+           
         }
     }
     function handleTextInputChange(e){
